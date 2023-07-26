@@ -40,3 +40,7 @@ source private_gpt/bin/activate
 ### Installation
 
 Check model_3\README.md
+
+## Model 4 - Version 0.4.0
+
+Based on Poe Platform
