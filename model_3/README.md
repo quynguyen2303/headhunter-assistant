@@ -8,7 +8,9 @@ Built with [LangChain](https://github.com/hwchase17/langchain), [GPT4All](https:
 # Environment Setup
 In order to set your environment up to run the code here, first install all requirements:
 
+
 ```shell
+source private_gpt/bin/activate
 pip3 install -r requirements.txt
 ```
 

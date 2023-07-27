@@ -43,7 +43,15 @@ def main():
     qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever, return_source_documents= not args.hide_source)
     # Interactive questions and answers
     while True:
-        query = input("\nEnter a query: ")
+        prompts = "I want you to work as a job description parser to extract job description's information. \
+            Step 1: Can you give me the job title? \
+            Step 2: Can you give me the working address of the job? \
+            Step 3: Can you give me the job type of the job for example full-time, part-time, contract? \
+            Step 4: Can you give me the job description of the job? \
+            Step 5: Can you give me the benefits of the job? \ "
+        # query = input("\nEnter a query: ")
+        # Set up prompts
+        query = prompts
         if query == "exit":
             break
         if query.strip() == "":

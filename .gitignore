@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Virtual environments
+model_3/private_gpt/
+
+# Local LLM models
+model_3/models/
+
 # Distribution / packaging
 .Python
 build/
