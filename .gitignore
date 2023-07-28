@@ -8,6 +8,7 @@ __pycache__/
 
 # Virtual environments
 model_3/private_gpt/
+model_5/pdfGPT/
 
 # Local LLM models
 model_3/models/

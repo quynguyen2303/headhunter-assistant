@@ -11,37 +11,22 @@ headers = {
     "Content-Type": "application/json",
 }
 
+message_1 = "I want you to work as a job description parser to extract the file's information.\
+                Step 1: Can you give me the job title?\
+                Step 2: Can you give me the working address of the job?\
+                Step 3: Can you give me the job type of the job for example full-time, part-time, contract?\
+                Step 4: Can you give me the job requirement of the job?\
+                Step 5: Can you give me the benefits of the job?"
+message_2 = "This is a job description. Can you give me the job title, working address, job type, job requirements, job benefits?\
+            Give the answer in json format. If not available, please put 'null' "
+
 data = {
-    'sourceId': "cha_rJUFb99cENZ28wru4341I",
+    'sourceId': "src_TLjI8gd2GJmWs73nGGVEY",
     'messages': [
-        # {
-        #     'role': "user",
-        #     'content': "Can you give me his name, email, phone and address? Output csv format.?",
-        # },
-        # {
-        #     'role': "user",
-        #     'content': "<start>",
-        # },
         {
             'role': "user",
-            'content': "I want you to work as a resume parser to extract candidate's information, email, phone and  working experience.",
-        },
-        # {
-        #     'role': "user",
-        #     'content': "Can you give me his name?",
-        # },
-        # {
-        #     'role': "user",
-        #     'content': "Can you give me his email?",
-        # },
-        # {
-        #     'role': "user",
-        #     'content': "Can you give me his phone?",
-        # },
-        # {
-        #     'role': "user",
-        #     'content': "What are his previous positions? Output format: position, company, working date.",
-        # }
+            'content': message_2,
+        }
     ]
 }
 
