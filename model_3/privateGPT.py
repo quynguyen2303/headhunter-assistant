@@ -49,9 +49,10 @@ def main():
             Step 3: Can you give me the job type of the job for example full-time, part-time, contract? \
             Step 4: Can you give me the job description of the job? \
             Step 5: Can you give me the benefits of the job? \ "
-        # query = input("\nEnter a query: ")
+        
+        query = input("\nEnter a query: ")
         # Set up prompts
-        query = prompts
+        # query = prompts
         if query == "exit":
             break
         if query.strip() == "":

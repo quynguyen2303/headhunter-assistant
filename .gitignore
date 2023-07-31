@@ -9,9 +9,11 @@ __pycache__/
 # Virtual environments
 model_3/private_gpt/
 model_5/pdfGPT/
+model_6/h2ogpt/
 
 # Local LLM models
 model_3/models/
+model_6/
 
 # Distribution / packaging
 .Python

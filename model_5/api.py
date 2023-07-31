@@ -175,3 +175,4 @@ async def ask_file(file: UploadFile, question: str) -> str:
     load_recommender(str(tmp_path))
     openAI_key = load_openai_key()
     return generate_answer(question, openAI_key)
+

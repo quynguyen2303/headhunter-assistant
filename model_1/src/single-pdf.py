@@ -4,7 +4,7 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.chains import ConversationalRetrievalChain
 from langchain.schema import HumanMessage, AIMessage
 from dotenv import load_dotenv
-
+import time
 
 def make_chain():
     model = ChatOpenAI(
@@ -27,7 +27,6 @@ def make_chain():
         # verbose=True,
     )
 
-
 if __name__ == "__main__":
     load_dotenv()
 
@@ -37,6 +36,8 @@ if __name__ == "__main__":
     while True:
         print()
         question = input("Question: ")
+
+        start_time = time.time()
 
         # Generate answer
         response = chain({"question": question, "chat_history": chat_history})
@@ -53,3 +54,7 @@ if __name__ == "__main__":
             print(f"Page: {document.metadata['page_number']}")
             print(f"Text chunk: {document.page_content[:160]}...\n")
         print(f"Answer: {answer}")
+
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Execution time: {execution_time} seconds")

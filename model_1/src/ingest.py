@@ -10,8 +10,20 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
 
+import time
+
+
 from dotenv import load_dotenv
 
+def is_doc_or_docx_by_extension(file_path):
+    # Define the known extensions for DOC and DOCX files
+    doc_extensions = ['.doc', '.docx']
+
+    # Get the file extension from the file path
+    file_extension = os.path.splitext(file_path)[1].lower()
+
+    # Check if the file extension matches any of the known extensions
+    return file_extension in doc_extensions
 
 def extract_metadata_from_pdf(file_path: str) -> dict:
     with open(file_path, "rb") as pdf_file:
@@ -111,8 +123,17 @@ def text_to_docs(text: List[str], metadata: Dict[str, str]) -> List[Document]:
 if __name__ == "__main__":
     load_dotenv()
 
+    start_time = time.time()
+
     # Step 1: Parse PDF
-    file_path = "src/data/resume_5.pdf"
+    file_path = "src/data/sample.pdf"
+
+    # convert(file_path)
+
+    # if is_doc_or_docx_by_extension(file_path):
+    #     convert(file_path)
+    #     file_path = file_path.replace(".docx", ".pdf")
+
     raw_pages, metadata = parse_pdf(file_path)
 
     # Step 2: Create text chunks
@@ -138,3 +159,7 @@ if __name__ == "__main__":
 
     # Save DB locally
     vector_store.persist()
+
+    end_time = time.time()
+    execution_time = end_time - start_time
+    print(f"Execution time: {execution_time} seconds")
