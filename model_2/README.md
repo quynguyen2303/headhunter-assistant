@@ -2,6 +2,9 @@
 Link: https://www.chatpdf.com/docs/api/backend
 
 
+### Installation
+
+
 ### Example for Add PDF via URL
 
 ```

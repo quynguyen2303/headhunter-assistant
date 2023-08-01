@@ -44,3 +44,7 @@ Check model_3\README.md
 ## Model 4 - Version 0.4.0
 
 Based on Poe Platform
+
+## Model 5 - Version 0.5.0
+
+Based on pdfGPT
