@@ -33,6 +33,18 @@ if __name__ == "__main__":
     chain = make_chain()
     chat_history = []
 
+    query = """
+    I want to act as a resume parser. I want to do step by step below, each step will be a question and answer.
+    Step 1: Extract candidate name, phone and email. Ask user to verify it. Then ask step 2.
+    Step 2: Extract candidate previous company, title, working dates. Ask user to verify it. Then ask step 3.
+    """
+    response = chain({"question": query, "chat_history": chat_history})
+    answer = response["answer"]
+    chat_history.append(HumanMessage(content=query))
+    chat_history.append(AIMessage(content=response["answer"]))
+    print(f"Answer: {answer}")
+
+
     while True:
         print()
         question = input("Question: ")
@@ -44,15 +56,15 @@ if __name__ == "__main__":
 
         # Retrieve answer
         answer = response["answer"]
-        source = response["source_documents"]
+        # source = response["source_documents"]
         chat_history.append(HumanMessage(content=question))
         chat_history.append(AIMessage(content=answer))
 
         # Display answer
-        print("\n\nSources:\n")
-        for document in source:
-            print(f"Page: {document.metadata['page_number']}")
-            print(f"Text chunk: {document.page_content[:160]}...\n")
+        # print("\n\nSources:\n")
+        # for document in source:
+        #     print(f"Page: {document.metadata['page_number']}")
+        #     print(f"Text chunk: {document.page_content[:160]}...\n")
         print(f"Answer: {answer}")
 
         end_time = time.time()

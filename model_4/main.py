@@ -2,15 +2,13 @@
 # a bot running. By default, the starter code uses the EchoBot, which is a simple bot that echos
 # a message back at its user and is a good starting point for your bot, but you can
 # comment/uncomment any of the following code to try out other example bots.
+import os
 
 from fastapi_poe import make_app
 from modal import Image, Stub, asgi_app
+from langchain_openai import LangChainCatBot
 
-from battlebot import BattleBot
-from catbot import CatBot
-from chatgpt_allcapsbot import ChatGPTAllCapsBot
-from echobot import EchoBot
-from huggingface_bot import HuggingFaceBot
+
 
 # Echo bot is a very simple bot that just echoes back the user's last message.
 # bot = EchoBot()
@@ -22,7 +20,7 @@ from huggingface_bot import HuggingFaceBot
 
 # A bot that wraps Poe's ChatGPT bot, but makes all messages ALL CAPS.
 # Good simple example of calling on another bot using Poe's API.
-bot = ChatGPTAllCapsBot()
+bot = LangChainCatBot(os.environ["OPENAI_API_KEY"])
 
 # A bot that calls two different bots (by default Sage and Claude-Instant) and
 # shows the results. Can customize what bots to call by including in message a string
