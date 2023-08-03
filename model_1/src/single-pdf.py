@@ -34,23 +34,43 @@ if __name__ == "__main__":
     chat_history = []
 
     query = """
-    I want to act as a resume parser. I want to do step by step below, each step will be a question and answer.
-    Step 1: Extract candidate name, phone and email. Ask user to verify it. Then ask step 2.
-    Step 2: Extract candidate previous company, title, working dates. Ask user to verify it. Then ask step 3.
+    "This is a resume. Can you give me the name, phone, email,\ 
+    previous working experience includes companies, title, working dates, \
+    and college, major in collages? \
+    Give the answer in json format. If not available, please put 'null' \
+    For example, {"name": <name>, \
+                "phone": <phone>, \
+                "email": <email>, \ 
+                "working_experiences": [
+                    {"company": <company>, \
+                    "title": <title>, \
+                    "working_date": <working_dates> },\
+                    {"company": <company>, \
+                    "title": <title>, \
+                    "working_date": <working_dates> }\
+                    ],
+                "college": <college>, \
+                "major": <major> \
+                }
+    "
     """
+    start_time = time.time()
     response = chain({"question": query, "chat_history": chat_history})
     answer = response["answer"]
     chat_history.append(HumanMessage(content=query))
     chat_history.append(AIMessage(content=response["answer"]))
     print(f"Answer: {answer}")
-
+    end_time = time.time()
+    execution_time = end_time - start_time
+    print(f"Execution time: {execution_time} seconds")
 
     while True:
         print()
         question = input("Question: ")
-
+        if question == "quit":
+            break
+        
         start_time = time.time()
-
         # Generate answer
         response = chain({"question": question, "chat_history": chat_history})
 
