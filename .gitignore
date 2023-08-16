@@ -11,6 +11,7 @@ model_3/private_gpt/
 model_5/pdfGPT/
 model_6/h2ogpt/
 model_4/poe/
+hugging_face/transformer_hf/
 
 # Local LLM models
 model_3/models/

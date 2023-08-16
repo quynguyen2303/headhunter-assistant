@@ -14,3 +14,9 @@ Build an agent that can chat with a user. The agent should be able to:
     - Ask for the motivation for applying for the job
 """
 
+# TODO: Add a function that can extract the job role from the user's response
+# TODO: Add a function that can extract the expected salary from the user's response
+# TODO: Add a function that can extract the reason for leaving previous job from the user's response
+# TODO: Add a function that can extract the motivation for applying for the job from the user's response
+
+# Function to chat with the user

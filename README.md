@@ -48,3 +48,10 @@ Based on Poe Platform
 ## Model 5 - Version 0.5.0
 
 Based on pdfGPT
+Too complicated and not work as expected
+
+## Hugging Face
+
+```
+source transformer_hf/bin/activate
+```

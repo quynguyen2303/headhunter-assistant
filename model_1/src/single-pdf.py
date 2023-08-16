@@ -1,10 +1,12 @@
 from langchain.vectorstores.chroma import Chroma
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.chains import ConversationalRetrievalChain
+from langchain.chains import ConversationalRetrievalChain, RetrievalQA  
 from langchain.schema import HumanMessage, AIMessage
 from dotenv import load_dotenv
 import time
+from langchain.chains.question_answering import load_qa_chain
+
 
 def make_chain():
     model = ChatOpenAI(
